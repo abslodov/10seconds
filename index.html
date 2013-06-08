@@ -13,6 +13,19 @@
         $('#colored_sketch').sketch();
       });
     </script>
+	<style>
+		*{
+	            -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+	            -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+	            -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+	   			-webkit-user-select: none;                 /* prevent copy paste, to allow, change 'none' to 'text' */
+
+	    }
+		input {
+		    	-webkit-user-select: auto !important;
+		}
+	</style>
+
   </head>
   <body>
     <div id='tools'><a href="javascript:history.go(0)" style="margin-right: 5px; border: 1px solid black; width: 80px; height: 30px; background: #fff; display: inline-block;"></a></div>
