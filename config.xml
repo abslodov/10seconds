@@ -54,12 +54,6 @@
 
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="res/screen/ios/screen-iphone-portrait.png"    gap:platform="ios"     width="320" height="480" />
-    <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
-    <gap:splash src="res/screen/ios/screen-iphone-landscape"       gap:platform="ios"     width="480" height="320" />
-    <gap:splash src="res/screen/ios/screen-iphone-landscape-2x"    gap:platform="ios"     width="960" height="640" />
-    <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
-    <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="res/screen/ios/screen-screen-iphone-portrait-568h-2x.png"     gap:platform="ios"     width="640" height="1136" />
     
 
