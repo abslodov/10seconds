@@ -11,8 +11,7 @@ $(function(){
     $.ajax({
        url: "http://seconds.dontexist.org/canvas/uploadFile.php",
        type: "POST",
-			 data: {artistName: artistName},
-       data: {image: dataURL}
+       data: {image: dataURL, artistName: artistName}
     }).done(function(respond){
    });
   });
