@@ -2,8 +2,10 @@
 <html lang="en-US">
   <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />	
 	<script src="phonegap.js"></script>
 	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="js/main.js"></script>
 	<script src='js/sketch.js'></script>
 	<script type='text/javascript'>
@@ -26,10 +28,121 @@
 	input{
 		-webkit-user-select: auto !important;
 	}
+	
+	body { font-size: 62.5%; }
+    label, input { display:block; }
+    input.text { margin-bottom:0px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:-20px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+	.ui-dialog-titlebar-close { visibility: hidden;	}
+	.ui-dialog-titlebar { visibility: hidden; }
+	.ui-button { width: 120px; }
 	</style>
+
+	<script type="text/javascript">
+    function stopEnterKey(evt) {
+        var evt = (evt) ? evt : ((event) ? event : null);
+        var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+        if ((evt.keyCode == 13) && (node.type == "text")) { return false; }
+    }
+    document.onkeypress = stopEnterKey;
+    </script>
+
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans|PT+Sans+Narrow|Droid+Sans' rel='stylesheet' type='text/css'>
+	
+  <script>
+  $(function() {
+    var name = $( "#name" ),
+      allFields = $( name ),
+      tips = $( ".validateTips" );
+
+    function updateTips( t ) {
+      tips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+      setTimeout(function() {
+        tips.removeClass( "ui-state-highlight", 1500 );
+      }, 500 );
+    }
+
+    function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        updateTips( "Length of " + n + " must be between " +
+          min + " and " + max + "." );
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    function checkRegexp( o, regexp, n ) {
+      if ( !( regexp.test( o.val() ) ) ) {
+        o.addClass( "ui-state-error" );
+        updateTips( n );
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    $( "#dialog-form" ).dialog({
+      autoOpen: true,
+      height: 190,
+	  closeOnEscape: false,
+	  position: [70,100],
+	  draggable: false,
+      width: 150,
+      modal: true,
+	  resizable: false,
+      buttons: {
+        "Draw!": function() {
+          var bValid = true;
+          allFields.removeClass( "ui-state-error" );
+
+          bValid = bValid && checkLength( name, "username", 3, 11 );
+          bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter." );
+
+
+          if ( bValid ) {
+            $( "#users tbody" ).append( "<tr>" +
+              "<td>" + name.val() + "</td>" +
+            "</tr>" );
+			$("input[name=nameof]").val(name.val());
+            $( this ).dialog( "close" );
+          }
+        },
+      },
+      close: function() {
+        allFields.val( "" ).removeClass( "ui-state-error" );
+      }
+    });
+  });
+  </script>
+	
 </head>
 <body>
+
+	<div id="dialog-form">
+	  <p class="validateTips"></p>
+
+	  <form>
+	  <fieldset>
+	    <label for="name">What's your name?</label>
+	    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+	  </fieldset>
+	  </form>
+	</div>
+
+	<form id="artist">
+		<input type="hidden" id="nameof" name="nameof" />
+	</form>
+
 
 	<!-- Main -->
 	<div role="main">
