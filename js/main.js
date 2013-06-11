@@ -8,7 +8,7 @@ $(function(){
     var dataURL= canvas.toDataURL();
 
     $.ajax({
-       url: "uploadFile.php",
+       url: "http://seconds.dontexist.org/canvas/uploadFile.php",
        type: "POST",
        data: {image: dataURL}
     }).done(function(respond){
