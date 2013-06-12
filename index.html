@@ -59,10 +59,11 @@
 	
 	#bbw {
 		display: inline-block;
+		margin-right: 2px;
 	}
 	
 	#slider-handle {
-	  width:30px;
+	  width:10px;
 	  height:20px;
 	  border:1px solid #000;  
 	}	
@@ -187,15 +188,23 @@
 
 
 	<!-- Main -->
-	<div role="main">
+
 
 		<!-- Our Canvas Element -->
-		<span id="erase"><a href="#" style="margin-right: 10px; width: 80px; height: 30px; background-image:url('res/buttons/erase.png'); display: inline-block;"></a></span>
+		<a href="#"><span id="erase" style="margin-right: 10px; width: 80px; height: 30px; background-image:url('res/buttons/erase.png'); display: inline-block;"></span></a>
 		<a href="#"><span id="upCanvas" style="margin-right: 10px; width: 69px; height: 30px; background-image:url('res/buttons/send.png'); display: inline-block;"></span></a>
 		<a href="contacts.html" style="margin-right: 10px; width: 68px; height: 30px; background-image:url('res/buttons/view.png'); display: inline-block;"></a><br />
 		<canvas id='colored_sketch' width='300' height='450' style='border: 1px dotted black; margin-bottom: 10px;'></canvas>
-		<div id='tools'><div id="slider-horiz" style="height: 16px; width: 200px; margin-bottom: 10px;"></div>
-	    <a href="#colored_sketch" id="box" data-color="#000" style="border: 1px solid black; width: 30px; height: 30px; background: #000;"></a></div>
+		
+		<table>
+			<tr>
+				<td><div id="slider-horiz" style="height: 16px; width: 180px; margin-right: 5px;"></div></td>
+				<td><div id='tools'><a href="#colored_sketch" id="box" data-color="#000" style="border: 1px solid black; width: 30px; height: 30px; background: #000;"></a></div></td>	
+			</tr>
+		</table>
+		
+		
+		
 
 		<script>
 		var canvas = document.getElementById('colored_sketch');
@@ -209,6 +218,6 @@
 
 			</script>
 
-		</div>
+
   </body>
 </html>
