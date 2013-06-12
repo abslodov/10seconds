@@ -2,15 +2,15 @@
 <html lang="en-US">
   <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />	
+	<link rel="stylesheet" href="css/jquery-ui.css" />	
 	<script src="phonegap.js"></script>
 	<script src="js/jquery-1.10.1.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="js/jquery-ui.js"></script>
 	<script src="js/main.js"></script>
 	<script src='js/sketch.js'></script>
 	<script type='text/javascript'>
 	$(function() {
-		$.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#000', '#fff'], function() {
+		$.each(['#000', '#fff'], function() {
 			$('#tools').append("<a href='#colored_sketch' data-color='" + this + "' style='border: 1px solid black; width: 30px; height: 30px; background: " + this + "; display: inline-block;'></a> ");
 		});
 
@@ -42,6 +42,17 @@
 	.ui-dialog-titlebar-close { visibility: hidden;	}
 	.ui-dialog-titlebar { visibility: hidden; }
 	.ui-button { width: 120px; }
+	
+	#slider-horiz {
+	  background:url(img/gradient.png) repeat-x;  
+	}
+
+	#box {
+	  width:30px;
+	  height:30px;
+	  border:1px solid #000;  
+	}	
+	
 	</style>
 
 	<script type="text/javascript">
@@ -125,6 +136,23 @@
   });
   </script>
 	
+  <script>
+	$(function() {
+		var box = $('#box')[0];
+
+		$("#slider-horiz").slider({
+			orientation: "horizontal",
+			min: 0,
+			max: 360,
+			value: 0,
+			slide: function(event, ui) {
+				$('#box').attr('data-color', 'hsl(' + ui.value + ', 100%, 50%)');
+				box.style.background = 'hsl(' + ui.value + ', 100%, 50%)';
+			}
+		});
+	});	
+  </script>
+
 </head>
 <body>
 
@@ -150,9 +178,10 @@
 		<!-- Our Canvas Element -->
 		<span id="erase"><a href="#" style="margin-right: 10px; width: 80px; height: 30px; background-image:url('res/buttons/erase.png'); display: inline-block;"></a></span>
 		<a href="#"><span id="upCanvas" style="margin-right: 10px; width: 69px; height: 30px; background-image:url('res/buttons/send.png'); display: inline-block;"></span></a>
-		<a href="image.png" target="_blank" style="margin-right: 10px; width: 68px; height: 30px; background-image:url('res/buttons/view.png'); display: inline-block;"></a><br />
+		<a href="contacts.html" target="_blank" style="margin-right: 10px; width: 68px; height: 30px; background-image:url('res/buttons/view.png'); display: inline-block;"></a><br />
 		<canvas id='colored_sketch' width='300' height='450' style='border: 1px dotted black; margin-bottom: 10px;'></canvas>
-		<div id='tools'></div>
+		<div id="slider-horiz" style="height: 16px; width: 200px;"></div>
+	    <a href="#colored_sketch" id="box" data-color="#000" style="border: 1px solid black; width: 30px; height: 30px; background: #000; display: inline-block;"></a><div id='tools'></div>
 
 		<script>
 		var canvas = document.getElementById('colored_sketch');
