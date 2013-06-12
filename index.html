@@ -3,7 +3,7 @@
   <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/jquery-ui.css" />	
-	<script src="phonegap.js"></script>
+
 	<script src="js/jquery-1.10.1.min.js"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script src="js/main.js"></script>
@@ -11,7 +11,7 @@
 	<script type='text/javascript'>
 	$(function() {
 		$.each(['#000', '#fff'], function() {
-			$('#tools').append("<a href='#colored_sketch' data-color='" + this + "' style='border: 1px solid black; width: 30px; height: 30px; background: " + this + "; display: inline-block;'></a> ");
+			$('#tools').append("<a id='bbw' href='#colored_sketch' data-color='" + this + "' style='border: 1px solid black; width: 30px; height: 30px; background: " + this + ";'></a> ");
 		});
 
 		$('#colored_sketch').sketch();
@@ -50,6 +50,18 @@
 	#box {
 	  width:30px;
 	  height:30px;
+	  border:1px solid #000;
+	  display:inline-block;
+	  margin-right: 5px;
+	}
+	
+	#bbw {
+		display: inline-block;
+	}
+	
+	#slider-handle {
+	  width:30px;
+	  height:20px;
 	  border:1px solid #000;  
 	}	
 	
@@ -180,8 +192,8 @@
 		<a href="#"><span id="upCanvas" style="margin-right: 10px; width: 69px; height: 30px; background-image:url('res/buttons/send.png'); display: inline-block;"></span></a>
 		<a href="contacts.html" style="margin-right: 10px; width: 68px; height: 30px; background-image:url('res/buttons/view.png'); display: inline-block;"></a><br />
 		<canvas id='colored_sketch' width='300' height='450' style='border: 1px dotted black; margin-bottom: 10px;'></canvas>
-		<div id="slider-horiz" style="height: 16px; width: 200px;"></div>
-	    <a href="#colored_sketch" id="box" data-color="#000" style="border: 1px solid black; width: 30px; height: 30px; background: #000; display: inline-block;"></a><div id='tools'></div>
+		<div id='tools'><div id="slider-horiz" style="height: 16px; width: 200px; margin-bottom: 10px;"></div>
+	    <a href="#colored_sketch" id="box" data-color="#000" style="border: 1px solid black; width: 30px; height: 30px; background: #000;"></a></div>
 
 		<script>
 		var canvas = document.getElementById('colored_sketch');

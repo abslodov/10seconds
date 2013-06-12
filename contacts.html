@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Contact Example</title>
-
+	
     <script type="text/javascript" charset="utf-8" src="js/cordova.ios.js"></script>
     <script type="text/javascript" charset="utf-8">
 
@@ -24,7 +24,7 @@
     //
     function onSuccess(contacts) {
         for (var i=0; i<contacts.length; i++) {
-			$( "#users tbody" ).append( "<tr>" +
+            $( "#users tbody" ).append( "<tr>" +
               "<td>" + contacts[i].displayName + "</td>" +
             "</tr>" );
         }
@@ -39,6 +39,7 @@
     </script>
   </head>
   <body>
+<a href="index.html">back to home</a>
 
 	<div id="users-contain">
 	  <h1>Existing Users:</h1>
