@@ -57,8 +57,7 @@
 	#box {
 	  width:27px;
 	  height:27px;
-	  border:1px solid #000;
-	  display:inline-block;
+	  display:hidden;
 	  margin-right: 5px;
 	}
 	
@@ -71,7 +70,7 @@
 	  width:15px;
 	  height:20px;
 	  background: #fff;
-	  border:1px solid #000;  
+	  border:1px solid #000;
 	}	
 	
 	</style>
@@ -171,6 +170,7 @@
 				box.style.background = 'hsl(' + ui.value + ', 100%, 50%)';
 				var clr = $('#box').css('background-color');
 	            $('#box').attr('data-color', clr).trigger('click');
+				$('#slider-handle').css('background-color', clr);
 			}
 		});
 	});	
@@ -207,7 +207,7 @@
 		<table>
 			<tr>
 				<td><div id="slider-horiz" style="height: 16px; width: 180px; margin-right: 10px;"></div></td>
-				<td><div id='tools'><a href="#colored_sketch" id="box" data-color="#000" style="border: 1px solid black; width: 27px; height: 27px; background: #000;"></a></div></td>	
+				<td><div id='tools'><a href="#colored_sketch" id="box" data-color="#000"></a></div></td>	
 			</tr>
 		</table>
 		
