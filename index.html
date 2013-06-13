@@ -13,11 +13,14 @@
 	<script type='text/javascript'>
 	$(function() {
 		$.each(['#000', '#fff'], function() {
-			$('#tools').append("<a id='bbw' href='#colored_sketch' data-color='" + this + "' style='border: 1px solid black; width: 25px; height: 25px; background: " + this + ";'></a> ");
+			$('#tools').append("<a id='bbw' href='#colored_sketch' data-color='" + this + "' style='border: 1px solid black; width: 27px; height: 27px; background: " + this + ";'></a> ");
 		});
 
 		$('#colored_sketch').sketch();
 	});
+	
+	$('.ui-slider-handle').draggable();
+	
 	</script>
 	<style>
 	*{
