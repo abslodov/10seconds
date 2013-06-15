@@ -65,8 +65,8 @@
 	}
 	
 	#slider-handle {
-	  width:15px;
-	  height:20px;
+	  width:25px;
+	  height:32px;
 	  background: #fff;
 	  border:1px solid #000;
 	}	
@@ -164,11 +164,19 @@
 			max: 360,
 			value: 0,
 			slide: function(event, ui) {
-				//$('#box').attr('data-color', 'hsl(' + ui.value + ', 100%, 50%)');
 				box.style.background = 'hsl(' + ui.value + ', 100%, 50%)';
 				var clr = $('#box').css('background-color');
 	            $('#box').attr('data-color', clr).trigger('click');
 				$('#slider-handle').css('background-color', clr);
+				if (ui.value == 0) {
+					$('#box').attr('data-color', 'hsl(' + ui.value + ', 0%, 0%)').trigger('click');
+					$('#slider-handle').css('background-color', '#000');
+				}
+				if (ui.value == 360) {
+					$('#box').attr('data-color', 'hsl(' + ui.value + ', 100%, 100%)').trigger('click');
+					$('#slider-handle').css('background-color', '#fff');
+				}
+				
 			}
 		});
 	});	
@@ -205,8 +213,8 @@
 		
 		<table>
 			<tr>
-				<td><div id="slider-horiz" style="height: 16px; width: 180px; margin-right: 10px;"></div></td>
-				<td><div id='tools'><a href="#colored_sketch" id="box" data-color="#000"></a></div></td>	
+				<td><div id="slider-horiz" style="height: 30px; width: 280px; margin-right: 10px;"></div></td>
+				<td><a href="#colored_sketch" id="box" data-color="#000"></a></td>	
 			</tr>
 		</table>
 		
