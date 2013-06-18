@@ -44,86 +44,14 @@
 	
 	</style>
 
-
-
-	
-  <script>
-  $(function() {
-    var name = $( "#name" ),
-      allFields = $( name ),
-      tips = $( ".validateTips" );
-
-    function updateTips( t ) {
-      tips
-        .text( t )
-        .addClass( "ui-state-highlight" );
-      setTimeout(function() {
-        tips.removeClass( "ui-state-highlight", 1500 );
-      }, 500 );
-    }
-
-    function checkLength( o, n, min, max ) {
-      if ( o.val().length > max || o.val().length < min ) {
-        o.addClass( "ui-state-error" );
-        updateTips( "Length of " + n + " must be between " +
-          min + " and " + max + "." );
-        return false;
-      } else {
-        return true;
-      }
-    }
-
-    function checkRegexp( o, regexp, n ) {
-      if ( !( regexp.test( o.val() ) ) ) {
-        o.addClass( "ui-state-error" );
-        updateTips( n );
-        return false;
-      } else {
-        return true;
-      }
-    }
-
-    $( "#dialog-form" ).dialog({
-      autoOpen: true,
-      height: 190,
-	  closeOnEscape: false,
-	  position: [70,100],
-	  draggable: false,
-      width: 150,
-      modal: true,
-	  resizable: false,
-      buttons: {
-        "Draw!": function() {
-          var bValid = true;
-          allFields.removeClass( "ui-state-error" );
-
-          bValid = bValid && checkLength( name, "username", 3, 11 );
-          bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter." );
-
-
-          if ( bValid ) {
-            $( "#users tbody" ).append( "<tr>" +
-              "<td>" + name.val() + "</td>" +
-            "</tr>" );
-			$("input[name=nameof]").val(name.val());
-            $( this ).dialog( "close" );
-          }
-        },
-      },
-      close: function() {
-        allFields.val( "" ).removeClass( "ui-state-error" );
-      }
-    });
-  });
-  </script>
-	
 	<script>
 	$(document).on('pagebeforeshow', '#introform', function(){  
 	        $(document).on('click', '#mysubmit', function() {
 				var name = $( "#name" );
 				$("input[name='nameof']").val(name.val());
 				//alert($('input#nameof').val());
-				$("#introform").remove();
+				$("#introform").hide();
+				$("#index").show();
 				$.mobile.changePage("#index", {transition: "slidedown"});
 	        });    
 	});
