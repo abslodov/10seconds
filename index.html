@@ -58,7 +58,7 @@
 	</script>
 	
   <script>
-	$(document).on('pageshow', '#index', function(){ 
+	$(document).on('pagebeforeshow', '#index', function(){ 
 	    var box = $('#box')[0];
 	    $(document).on( "slidestop", "#slider-1", function( event, ui ) {
 			box.style.background = 'hsl(' + $(this).val() + ', 100%, 50%)';
