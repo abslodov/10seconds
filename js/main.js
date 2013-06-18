@@ -6,7 +6,7 @@ $(function(){
   $("#upCanvas").on("click", function(){
     // Convert Canvas DataURL
     var dataURL= canvas.toDataURL();
-		var artistName = $("#nameof").val();
+		var artistName = $('input#nameof').val();
 
     $.ajax({
        url: "http://seconds.dontexist.org/canvas/uploadFile.php",
