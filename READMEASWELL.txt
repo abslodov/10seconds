@@ -1,0 +1,1 @@
+a diary of truths and lies... like truths.
