@@ -62,6 +62,9 @@
 	});
 	</script>
 	
+	
+
+	
   <script>
 	$(document).on('pagebeforeshow', '#index', function(){ 
 	    var box = $('#box')[0];
@@ -91,22 +94,31 @@
 		
 	<div data-role="content" style="margin-top: 12%;">
     
-			
-			<form id="artist" class="ui-body ui-body-a ui-corner-all" method="POST" action="#index">	
-				<fieldset style="text-align: center;">
-					<div data-role="fieldcontain">
-						<label for="name" style="width: 100%; margin-top: -10px; margin-bottom: 10px;">what's your name?</label>
-						<input id="name" type="text" name="name" />
-					</div>
-					<button id="mysubmit" data-theme="a" type="submit">submit</button>
-				</fieldset>
-		  	</form>
-			<form id="artistname">
-				<input type="hidden" id="nameof" name="nameof" value="" />
-			</form>
+		<form id="artist" class="ui-body ui-body-a ui-corner-all" method="POST" action="#index">	
+			<fieldset style="text-align: center;">
+				<div data-role="fieldcontain">
+					<label for="name" style="width: 100%; margin-top: -10px; margin-bottom: 10px;">what's your name?</label>
+					<input id="name" type="text" name="name" />
+				</div>
+				<button id="mysubmit" data-theme="a" type="submit">submit</button>
+			</fieldset>
+	  	</form>
+		<form id="artistname">
+			<input type="hidden" id="nameof" name="nameof" value="" />
+		</form>
 
 	</div>
 	</div>
+
+	<div data-role="page" id="votedraw">
+	<div data-role="content">
+		
+		<a href="index.html" data-role="button" data-inline="true">vote</a>
+		<a href="index.html" data-role="button" data-inline="true" data-theme="b">draw</a>
+		
+	</div>
+	</div>	
+		
 
 
 	<div data-role="page" id="index">
